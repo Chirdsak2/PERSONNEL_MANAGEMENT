@@ -11,10 +11,10 @@
 
 <body>
     @include('components.navbarMain')
-    <form >
-    {{-- class="col-10" --}}
-        @include('layouts.tablePersonelList')
+    <form> {{-- class="col-10" --}}
+        {{-- @include('components.btnImportExcel') --}}
     </form>
+        @include('layouts.tablePersonelList')
 </body> 
 
 </html>
