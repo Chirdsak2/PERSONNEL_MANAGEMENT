@@ -25,3 +25,4 @@ Route::controller(PersonnelController::class)->group(function () {
     Route::put('/updatePersonnel/{id}', 'update')->name("personnel.update");
     Route::delete('/destroyPersonnel/{id}', 'destroy')->name("personnel.destroy");
 });
+
