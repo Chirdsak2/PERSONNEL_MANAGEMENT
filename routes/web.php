@@ -40,4 +40,4 @@ Route::controller(PersonnelController::class)->group(function () {
 
 // sssssssssssssss
 
-// QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+// QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
