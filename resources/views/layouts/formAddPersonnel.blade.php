@@ -18,13 +18,18 @@
         margin-bottom: 10px;
     }
 </style>
-<div class="container mt-4 col-8 ">
-    <h2 class="mb-3" align="center">ลงทะเบียนข้อมูลบุคลากร</h2>
+
+<h2 class="mt-4 mb-2" align="center">ลงทะเบียนข้อมูลบุคลากร</h2>
+
+<div class="d-flex justify-content-end col-10 mb-1">
+    <a href="{{ route('managePersonel') }}" class="btn btn-warning ">ย้อนกลับ</a>
+</div>
+
+<div class="container form-personnel col-8 ">
     <form class="mb-5" action="{{ url('storePersonnel') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="form-personnel">
             <div class="form-group col-3">
-                <label for="user_picture">รูปภาพผู้ใช้:</label>
+                <label for="user_picture">รูปภาพบุคลากร:</label>
                 <div id="image-preview"></div>
                 <input type="file" class="form-control-file" id="user_picture" name="user_picture" accept="image/*"
                     onchange="previewImage(event)">
@@ -75,7 +80,6 @@
                 <a class="btn btn-warning btn-sm" href="{{ route('managePersonel') }}" role="button" title=""> ย้อนกลับ</a>
                 <button type="submit" class="btn btn-success btn-sm">ลงทะเบียน</button>
             </div>
-        </div>
     </form>
 </div>
 

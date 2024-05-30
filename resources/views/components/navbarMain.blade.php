@@ -29,13 +29,13 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url('home') }}">หน้าแรก</a>
+                    <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" aria-current="page" href="{{ url('home') }}">หน้าแรก</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">เกี่ยวกับ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('managePersonel') }}">บุคลากร</a>
+                    <a class="nav-link {{ Request::is('managePersonel') ? 'active' : '' }}" href="{{ route('managePersonel') }}">บุคลากร</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">การจัดการ</a>
