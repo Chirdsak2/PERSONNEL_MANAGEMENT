@@ -6,9 +6,14 @@ use App\Http\Controllers\PersonnelController;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 
-Route::get('/', fn (): View => view('welcome'));
-Route::get('/login', fn (): View => view('login'));
-Route::get('/home', fn (): View => view('home'));
+// จัดระเบียบ Route
+// Route::get('/', fn (): View => view('welcome'));
+// Route::get('/login', fn (): View => view('login'));
+// Route::get('/home', fn (): View => view('home'));
+
+Route::view("/", 'welcome');
+Route::view("/login", 'login');
+Route::view("/home", 'home');
 
 Route::post('/action', [LoginController::class, 'login'])->name('action');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
