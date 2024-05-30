@@ -36,5 +36,6 @@ Route::controller(PersonnelController::class)->group(function () {
     Route::get('/editPersonnel/{id}', 'edit')->name("personnel.edit");
     Route::put('/updatePersonnel/{id}', 'update')->name("personnel.update");
     Route::delete('/destroyPersonnel/{id}', 'destroy')->name("personnel.destroy");
-
 });
+
+// sssssssssssssss
