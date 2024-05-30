@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -11,10 +11,12 @@
 
 <body>
     @include('components.navbarMain')
-    <form> {{-- class="col-10" --}}
+     {{-- class="col-10" --}}
         {{-- @include('components.btnImportExcel') --}}
-    </form>
-    @include('layouts.tablePersonelList')
+    <div class="form-add-person">
+        @include('layouts.formAddPersonnel')
+    </div>
 </body>
 
 </html>
+

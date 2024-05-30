@@ -1,4 +1,20 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<style>
+
+    #image-user {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%; /* 7px*/
+        
+        /*
+        max-width: 50px;
+        max-height: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        */
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-secondary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">บริหารจัดการบุคลากร</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -8,13 +24,13 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">หน้าแรก</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url('home') }}">หน้าแรก</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">เกี่ยวกับ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">บุคลากร</a>
+                    <a class="nav-link" href="{{ route('managePersonel') }}">บุคลากร</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">การจัดการ</a>
@@ -42,8 +58,11 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form> --}}
             <ul class="navbar-nav ml-auto"> <!-- ทำให้เนื้อหาอยู่ชิดขวา -->
+                <li class="nav-item"><img id="image-user" src="../uploads/{{ session('user_picture') }}" alt="">
+                </li>
                 <li class="nav-item">
-                    <span class="nav-link">{{ session('prefix_name_th') }}{{ session('firstname') }} {{ session('lastname') }}</span>
+                    <span class="nav-link"><b>{{ session('prefix_name_th') }}{{ session('firstname') }}
+                            {{ session('lastname') }}</b></span>
                     <!-- แสดงชื่อ-นามสกุล -->
                 </li>
             </ul>

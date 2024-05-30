@@ -22,6 +22,7 @@
 <body>
     <div class="container login-container">
         <h2 class="text-center">เข้าสู่ระบบ</h2>
+   
         <form method="post">
             @csrf <!-- เพิ่ม CSRF token -->
             <div class="form-group">
@@ -41,6 +42,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         $(document).ready(function() {
+             
+            
+
             $("#btn_login").click(function(e) {
                 e.preventDefault(); // ป้องกันการโหลดหน้าใหม่
 
