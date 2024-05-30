@@ -13,7 +13,7 @@ Route::get('/home', fn (): View => view('home'));
 Route::post('/action', [LoginController::class, 'login'])->name('action');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/managePersonel', function () {
+Route::get('/managePersonel', function (): View {
     $users = User::paginate(10);
     return view('managePersonel', compact('users'));
 })->name('managePersonel');
