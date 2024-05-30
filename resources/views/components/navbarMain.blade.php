@@ -12,6 +12,11 @@
         margin-bottom: 10px;
         */
     }
+    #image-user:hover {
+        transition: transform 0.5s ease; /* Smooth transition */
+        transform: scale(5); /* Scale the image back to its original size */
+        border-radius: 7px;
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg bg-body-secondary">

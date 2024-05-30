@@ -11,6 +11,9 @@
         box-shadow: 0px 0px 10px 0px #ccc;
     }
 
+    .table{
+        border: 1px;
+    }
     .table .thead-dark th {
         color: #fff;
         background-color: #212529;
@@ -28,13 +31,11 @@
     .pagination {
         /*  color: #fff;  Text color */
     }
-
     .page-link {
         /*  background-color: #343a40; Background color of the page link */
         /* border-color: #343a40;  Border color of the page link */
         color: #343a40;
     }
-
     .page-link:hover {
         background-color: #343a40;
         /* Background color of the page link on hover */
@@ -42,13 +43,13 @@
         /* Border color of the page link on hover */
         color: #fff;
     }
-
     .page-item.active .page-link {
         background-color: #343a40;
         /* Background color of the active page link */
         border-color: #343a40;
         /* Border color of the active page link */
     }
+    
 </style>
 
 <br>
@@ -56,17 +57,17 @@
 <h2 class="mb-2" align="center">บุคลากร</h2>
 
 <div class="d-flex justify-content-end col-11 mb-1">
-    <a href="{{ route('personnel.create') }}" class="btn btn-info">เพิ่มข้อมูล</a>
+    <a href="{{ route('personnel.create') }}" class="btn btn-info ">เพิ่มข้อมูล</a>
 </div>
 <div class="container form-personnel col-10">
 
-    <table class="table" border="0">
+    <table class="table" border="1">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ลำดับ</th>
-                <th scope="col">ชื่อ-สกุล</th>
-                {{-- <th scope="col">นามสกุล</th> --}}
-                <th scope="col">เบอร์โทรศัพท์</th>
+                <th scope="col" width="10%">ลำดับ</th>
+                <th scope="col" width="15%">รูปภาพผู้ใช้</th>
+                <th scope="col" width="30%">ชื่อ-สกุล</th>
+                <th scope="col" width="20%">เบอร์โทรศัพท์</th>
                 <th scope="col" width="15%" >จัดการ</th>
             </tr>
         </thead>
@@ -74,6 +75,7 @@
             @foreach ($users as $index => $item)
                 <tr>
                     <td align="center" scope="row">{{ $index + 1 }}</td>
+                    <td align="center"><img id="image-user" src="../uploads/{{ $item->user_picture }}" alt="" ></td>
                     <td>{{ $item->getPrefixName($item->prefix_id) }}{{ $item->firstname }} {{ $item->lastname }}</td>
                     <td>{{ $item->telephone }}</td>
                     <td >
