@@ -53,6 +53,8 @@
 
 <br>
 
+<h2 class="mb-4" align="center">บุคลากร</h2>
+
 <div class="d-flex justify-content-end col-11 mb-1">
     <a href="{{ route('personnel.create') }}" class="btn btn-info">เพิ่มข้อมูล</a>
 </div>
@@ -65,7 +67,7 @@
                 <th scope="col">ชื่อ-สกุล</th>
                 {{-- <th scope="col">นามสกุล</th> --}}
                 <th scope="col">เบอร์โทรศัพท์</th>
-                <th scope="col" width="20%" ></th>
+                <th scope="col" width="15%" >จัดการ</th>
             </tr>
         </thead>
         <tbody>

@@ -17,8 +17,8 @@
         margin-top: 10px;
     }
 </style>
-<div class="container mt-5 col-8">
-    <h2 class="mb-4" align="center">ลงทะเบียนข้อมูลบุคลากร</h2>
+<div class="container mt-4 col-8">
+    <h2 class="mb-1" align="center">ลงทะเบียนข้อมูลบุคลากร</h2>
     <form action="{{ url('storePersonnel') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-personnel">
