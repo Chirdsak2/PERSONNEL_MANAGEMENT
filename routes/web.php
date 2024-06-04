@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BreadcrumbController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PersonnelController;
@@ -25,6 +26,7 @@ Route::get('/managePersonel', function (): View {
 
 Route::controller(PersonnelController::class)->group(function () {
     Route::get('/addPersonnel', 'create')->name("personnel.create");
+    Route::get('/validateUsername', 'validateUsername')->name('validate.username');
     Route::post('/storePersonnel', 'store')->name("personnel.store");
     Route::get('/editPersonnel/{id}', 'edit')->name("personnel.edit");
     Route::put('/updatePersonnel/{id}', 'update')->name("personnel.update");

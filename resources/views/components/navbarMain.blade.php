@@ -19,7 +19,7 @@
     }
 </style>
 
-<nav class="navbar navbar-expand-lg bg-body-secondary">
+<nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">บริหารจัดการบุคลากร</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -37,14 +37,8 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('managePersonel') ? 'active' : '' }}" href="{{ route('managePersonel') }}">บุคลากร</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">การจัดการ</a>
-                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Link
-                    </a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Link </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Action</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -78,10 +72,7 @@
              @endauth --}}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        ออกจากระบบ
-                    </a>
+                    <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> ออกจากระบบ </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -90,3 +81,4 @@
         </div>
     </div>
 </nav>
+

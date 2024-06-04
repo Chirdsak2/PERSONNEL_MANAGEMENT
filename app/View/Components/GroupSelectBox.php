@@ -25,7 +25,8 @@ class GroupSelectBox extends Component
     public function render(): View|Closure|string
     {
 
-        $groups = Group::all();
+        // $groups = Group::all();
+        $groups = Group::where('id', '!=', 1)->get(); // ไม่ให้เลือกเป็นผู้ดูแลระบบ
         return view('components.group-select-box')->with([
             'groups' => $groups,
             'groupId' => $this->groupId

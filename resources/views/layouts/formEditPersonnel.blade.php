@@ -32,16 +32,25 @@
         margin-bottom: 10px;
         */
     }
+
+    .readonly-input {
+        background-color: #f0f0f0;
+        /* สีพื้นหลัง */
+        cursor: not-allowed;
+        /* เปลี่ยนรูปเมาส์เป็นไม่อนุญาตเมื่อถูกคลิก */
+        /* opacity: 0.6;
+        ทำให้ข้อความภายใน input เป็นสีอ่อนลง */
+    }
 </style>
 
 <h2 class="mt-4 mb-2" align="center">แก้ไขข้อมูลบุคลากร</h2>
 
-<div class="d-flex justify-content-end col-10 mb-1">
+<div class="d-flex justify-content-end col-11 mb-1">
     <a href="{{ route('managePersonel') }}" class="btn btn-warning ">ย้อนกลับ</a>
 </div>
 
-<div class="container form-personnel col-8 ">
-    <form class="mb-5" action="{{ url('updatePersonnel', ['id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
+<div class="container form-personnel col-10 mb-5">
+    <form action="{{ url('updatePersonnel', ['id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="form-group col-3">
@@ -57,50 +66,49 @@
             //    dd($user)
         @endphp
         <div class="form-group col-3">
-            <label for="prefix_id">คำนำหน้า:</label>
+            <span style="color:red;">* </span><label for="prefix_id">คำนำหน้า:</label>
             <x-prefix-select-box :prefixId="$user->prefix_id" />
 
         </div>
         <div class="form-group col-5">
-            <label for="firstname">ชื่อ:</label>
+            <span style="color:red;">* </span><label for="firstname">ชื่อ:</label>
             <input type="text" class="form-control" id="firstname" name="firstname" value="{{ $user->firstname }}"
                 required>
         </div>
         <div class="form-group col-5">
-            <label for="lastname">นามสกุล:</label>
+            <span style="color:red;">* </span><label for="lastname">นามสกุล:</label>
             <input type="text" class="form-control" id="lastname" name="lastname" value="{{ $user->lastname }}"
                 required>
         </div>
         <div class="form-group col-5">
-            <label for="telephone">เบอร์โทรศัพท์:</label>
+            <span style="color:red;">* </span><label for="telephone">เบอร์โทรศัพท์:</label>
             <input type="text" class="form-control" id="telephone" name="telephone" placeholder="เบอร์โทรศัพท์มือถือ"
                 value="{{ $user->telephone }}" onblur="validatePhoneNumber()" required>
         </div>
         <div class="form-group col-5">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}"
-                required>
+            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
         </div>
         <div class="form-group">
             <label for="address">ที่อยู่:</label>
             {{-- <input type="text" class="form-control" id="address" name="address" value="{{ $user->address }}" required> --}}
-            <textarea class="form-control" id="address" name="address" required>{{ $user->address }}</textarea>
+            <textarea class="form-control" id="address" name="address">{{ $user->address }}</textarea>
         </div>
         <div class="form-group col-5">
-            <label for="position_id">ตำแหน่ง:</label>
+            <span style="color:red;">* </span><label for="position_id">ตำแหน่ง:</label>
             <x-position-select-box :positionId="$user->position_id" />
         </div>
         <div class="form-group col-5">
-            <label for="group_id">ประเภทบุคลากร:</label>
+            <span style="color:red;">* </span><label for="group_id">ประเภทบุคลากร:</label>
             <x-group-select-box :group_Id="$user->group_id" />
         </div>
         <div class="form-group col-5">
-            <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}"
-                required>
+            <span style="color:red;">* </span><label for="username">Username:</label>
+            <input type="text" class="form-control readonly-input" id="username" name="username" value="{{ $user->username }}"
+                readonly>
         </div>
         <div class="form-group col-5">
-            <label for="password">Password:</label>
+            <span style="color:red;">* </span><label for="password">Password:</label>
             <input type="password" class="form-control" id="password" name="password" value="{{ $user->password }}"
                 required>
         </div>

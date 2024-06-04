@@ -19,7 +19,14 @@ class User extends Model
             ->first();
 
         return $users->prefix_name_th;
+    }
 
+    public function getPositionName ($position_id) : string {
+        $users = Position::select('position_full_name')
+            ->where('id','=',$position_id)
+            ->first();
+
+        return $users->position_full_name;
     }
     
 }

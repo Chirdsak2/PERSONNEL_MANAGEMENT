@@ -40,6 +40,7 @@ class LoginController extends Controller
                 'prefix_name_th' => $user->prefix_name_th, // ประกาศ prefix_name_th จากข้อมูลผู้ใช้
                 'firstname' => $user->firstname, // ประกาศ firstname จากข้อมูลผู้ใช้
                 'lastname' => $user->lastname, // ประกาศ lastname จากข้อมูลผู้ใช้
+                'group_id' => $user->group_id, // ประกาศ prefix_id จากข้อมูลผู้ใช้
                 'user_picture' => $user->user_picture // ประกาศ user_picture จากข้อมูลผู้ใช้
             ]);
 
@@ -50,7 +51,7 @@ class LoginController extends Controller
             return response()->json([
                 'status' => Response::HTTP_OK,
                 'message_text' => 'เข้าสู่ระบบสำเร็จ',
-                'detail' => '/home' // URL ที่จะเปลี่ยนเส้นทางไปหลังจากล็อกอินสำเร็จ
+                'detail' => '/managePersonel' // URL ที่จะเปลี่ยนเส้นทางไปหลังจากล็อกอินสำเร็จ
             ]);
         } else {
             // ถ้าไม่พบผู้ใช้หรือรหัสผ่านไม่ถูกต้อง    

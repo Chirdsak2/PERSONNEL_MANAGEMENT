@@ -22,7 +22,7 @@
 <body>
     <div class="container login-container">
         <h2 class="text-center">เข้าสู่ระบบ</h2>
-   
+
         <form method="post">
             @csrf <!-- เพิ่ม CSRF token -->
             <div class="form-group">
@@ -42,8 +42,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         $(document).ready(function() {
-             
-            
+
+            // เมื่อกดปุ่ม Enter ในช่องกรอกรหัสผ่าน
+            document.getElementById("password").addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) { // 13 คือรหัสปุ่ม Enter
+                    event.preventDefault();
+                    
+                    document.getElementById("btn_login").click(); // คลิกปุ่ม "เข้าสู่ระบบ"
+                }
+            });
+
 
             $("#btn_login").click(function(e) {
                 e.preventDefault(); // ป้องกันการโหลดหน้าใหม่
@@ -59,8 +67,8 @@
                         confirmButtonColor: "#2A3E59",
                         confirmButtonText: "ตกลง",
                     });
-                    $("#password").focus();
                     return;
+                    $("#password").focus();
                 }
 
                 $.ajax({

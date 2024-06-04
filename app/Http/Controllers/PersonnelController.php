@@ -142,4 +142,12 @@ class PersonnelController extends Controller
         return redirect('managePersonel');
         // return redirect('managePersonel')->with('success', 'User deleted successfully');
     }
+
+    /* ตรวจสอบ Username ซ้ำ */
+    public function validateUsername(Request $request){
+        $username = $request->query('username');
+        $exists = User::where('username', $username)->exists();
+
+        return response()->json(['exists' => $exists]);
+    }
 }
