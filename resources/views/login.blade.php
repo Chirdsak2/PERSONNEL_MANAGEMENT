@@ -21,6 +21,9 @@
 
 <body>
     <div class="container login-container">
+        <div align="center">
+        <img id="image-user" src="../uploads/welcome.gif" alt="" width="200px"  >
+        </div>
         <h2 class="text-center">เข้าสู่ระบบ</h2>
 
         <form method="post">

@@ -1,4 +1,4 @@
-<select class="form-select" id="prefix_id" name="prefix_id" aria-label="Default select example" required>
+<select class="form-select" id="prefix_id" name="prefix_id" aria-label="Default select example" required @if (request()->routeIs('personnel.show')) disabled @endif>
     <option selected value="">เลือก</option>
     @foreach ($prefixs as $prefix)
         <option {{ $prefix->id == $prefixId ? 'selected' : '' }} value="{{ $prefix->id }}">

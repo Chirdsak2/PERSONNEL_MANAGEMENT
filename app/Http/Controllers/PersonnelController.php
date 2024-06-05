@@ -2,17 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Position;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PersonnelController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): View
     {
-        //
+        $query = User::query();
+
+        // Check if name is provided in the search form
+        if ($request->has('name') && !empty($request->name)) {
+            $query->where(function($q) use ($request) {
+                $q->where('firstname', 'like', '%' . $request->name . '%')
+                  ->orWhere('lastname', 'like', '%' . $request->name . '%')
+                  ->orWhere(DB::raw("CONCAT(firstname, ' ', lastname)"), 'like', '%' . $request->name . '%');
+            });
+        }
+        
+
+        // Check if position_id is provided in the search form
+        if ($request->has('position_id') && !empty($request->position_id)) {
+            $query->where('position_id', $request->position_id);
+        }
+
+        $users = $query->paginate(10);
+        $positions = Position::all(); // Assuming you have a Position model to get all positions
+
+        return view('managePersonel', compact('users', 'positions'));
     }
 
     /**
@@ -64,7 +87,8 @@ class PersonnelController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::where('id', '=', $id)->first();
+        return view('detailPersonnel')->with('user', $user);
     }
 
     /**

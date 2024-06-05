@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\BreadcrumbController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PersonnelController;
+use App\Models\Position;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 // จัดระเบียบ Route
 // Route::get('/', fn (): View => view('welcome'));
@@ -19,12 +21,9 @@ Route::view("/home", 'home');
 Route::post('/action', [LoginController::class, 'login'])->name('action');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/managePersonel', function (): View {
-    $users = User::paginate(10);
-    return view('managePersonel', compact('users'));
-})->name('managePersonel');
-
 Route::controller(PersonnelController::class)->group(function () {
+    Route::get('/managePersonel', 'index')->name("managePersonel");
+    Route::get('/detailPersonnel/{id}', 'show')->name("personnel.show");
     Route::get('/addPersonnel', 'create')->name("personnel.create");
     Route::get('/validateUsername', 'validateUsername')->name('validate.username');
     Route::post('/storePersonnel', 'store')->name("personnel.store");
